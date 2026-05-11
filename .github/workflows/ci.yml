@@ -20,6 +20,10 @@ jobs:
       
       # TODO: adicionar um passo para compilar a aplicacao Go.
       # Dica: use apenas um comando.
+      - name: Build do programa Go
+        run: go build cmd/app/main.go
 
       # TODO: adicionar um passo para executar os testes.
       # Dica: use apenas um comando.
+      - name: Rodar Testes
+        run: go test ./... -v
