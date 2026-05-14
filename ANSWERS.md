@@ -1,5 +1,5 @@
-1) Toda vez que há um push para a branch master, ele executa os trabalhos (jobs) descritos na pipeline.
+1) Toda vez que há um push para a branch master, ele executa os trabalhos (jobs) descritos na pipeline. No arquivo "ci.yml" adicionei após o checkout do código 2 fases para a build do código e para os testes, usando "go build" e "go test ./... -v" para encontrar e executar os códigos de teste, gerando um relatório com a flag verbose.
 2) O Runner é a aplicação que baixa o código e executa um trabalho (job) descrito na pipeline, geralmente é um servidor ou uma máquina virtual que hospeda a aplicação.
 3) Em um você corre o risco de incompatibilidade de sistemas operacionais e no outro se tem garantia de execução por conta da containerização (Docker).
 4) Por conta da reprodutibilidade e isolamento do sistema operacional, evitando o "funciona na minha máquina, mas não não no runner do github actions".
-5) 
+5) Modifiquei o código de testes, para que ele esperasse um "?" no final ao invés do "!". A pipeline foi executada, ele falhou na etapa dos testes, gerando um exit code 1, e considera que a pipeline falhou.
